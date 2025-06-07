@@ -1,0 +1,207 @@
+:root {
+ --bg: #1e1e2f;           /* fondo general */
+  --text: #f4f4f4;         /* texto claro */
+  --card-bg: #2a2a40;      /* fondo de las tarjetas */
+  --accent: #4a90e2;       /* color de botones */
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --card-hover: #f1f1f1; /* Fondo suave para hover en las tarjetas */
+  --button-hover: #357ac9; /* Color de hover para botones */
+  --input-bg: #f7f7f7; /* Fondo suave para inputs */
+  --button-bg: #4a90e2; /* Fondo para botones */
+  --button-text: #fff; /* Color de texto en botones */
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logoutBtn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: auto;  /* Asegura que no ocupe todo el ancho */
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--text);
+}
+
+
+button, input, textarea {
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--input-bg);
+  color: var(--text);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+.cards-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 2rem;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 12px;
+  transform: all 0.3s ease;
+  overflow: hidden;
+  bottom: #fff;
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.card-body{
+  margin-top: 10px;
+}
+ 
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Un leve gris claro opcional */
+  border-radius: 4px;
+}
+
+.card.collapsed .toggle-btn {
+  transform: rotate(180deg);
+}
+
+.boton-borrar {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+.boton-borrar:hover {
+  background-color: rgba(255, 0, 0, 0.1); /* leve rojo al pasar el mouse */
+  border-radius: 4px;
+}
+
+/* Ocultar contenido al contraer */
+.card.collapsed .description,
+.card.collapsed .boton-borrar {
+  display: none;
+}
+
+.boton-borrar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e74c3c; /* rojo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-left: auto;
+}
+
+.card-title{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background-color: var(--card-hover);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card small {
+  display: block;
+  margin-top: 0.5rem;
+  color: gray;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: crimson;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 2rem;
+}
+
+input[type="date"], textarea {
+  background-color: var(--input-bg);
+}
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
