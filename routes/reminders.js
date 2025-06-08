@@ -23,6 +23,24 @@ router.post('/', async (req, res) => {
     res.status(500).json({ message: 'Error al guardar el recordatorio' });
   }
 });
+// PUT: Actualizar un recordatorio por ID
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedReminder = await Reminder.findByIdAndUpdate(id, req.body, {
+      new: true, // para que devuelva el recordatorio actualizado
+      runValidators: true,
+    });
+
+    if (!updatedReminder) {
+      return res.status(404).json({ message: "Recordatorio no encontrado" });
+    }
+
+    res.json(updatedReminder);
+  } catch (err) {
+    res.status(500).json({ message: "Error al actualizar", error: err.message });
+  }
+});
 
 
 // DELETE
